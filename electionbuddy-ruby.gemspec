@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/electionbuddy/ruby/version"
+require_relative "lib/election_buddy/version"
 
 Gem::Specification.new do |spec|
   spec.name = "electionbuddy-ruby"
-  spec.version = Electionbuddy::Ruby::VERSION
+  spec.version = ElectionBuddy::VERSION
   spec.authors = ["Alberto Rocha", "Henrique Lavezzo"]
   spec.email = ["developers@electionbuddy.com"]
 
