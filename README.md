@@ -1,20 +1,60 @@
-# ElectionBuddy
+# ElectionBuddy Ruby
 
-This gem is an SDK that facilitates integration with the Electionbuddy API, allowing the creation and management of elections programmatically.
+A Ruby client for interacting with the ElectionBuddy API.
+You can find the API documentation [here](https://api.electionbuddy.com).
 
 ## Installation
 
 Install the gem and add it to the application's Gemfile by executing:
 
-    $ bundle add electionbuddy-ruby
+    bundle add electionbuddy-ruby
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install electionbuddy-ruby
+    gem install electionbuddy-ruby
+
+Alternatively, add the gem to the Gemfile:
+
+```ruby
+gem 'electionbuddy-ruby'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Ensure you have an API key from Electionbuddy, and initialize the client as follows:
+
+```ruby
+client = ElectionBuddy::Client.new('your-api-key')
+```
+
+### Voter List Validation
+
+To validate a voter list, use the `voter_list.validate(vote_id)` method:
+
+```ruby
+validation = client.voter_list.validate(1)
+
+if validation.done?
+  puts "Validation completed successfully! Identifier: #{validation.identifier}"
+  # "Validation completed successfully! Identifier: ae0a1724-9791-4bb2-8331-6d4e55a9b7c8"
+else
+  puts "Validation failed: #{validation.error}"
+  # "Validation failed: Vote: not found"
+end
+```
+
+### Possible Errors
+
+The following errors may be raised by the API:
+
+- **400**: Malformed request.
+- **401**: Invalid authentication credentials.
+- **403**: Unauthorized.
+- **404**: Resource not found.
+- **429**: Your request exceeded the API rate limit.
+- **500**: We were unable to perform the request due to server-side problems.
+
+Each error will raise an `Error` exception with a message detailing the status code and the error message returned by the API.
 
 ## Development
 
