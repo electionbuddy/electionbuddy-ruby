@@ -1,6 +1,6 @@
 # ElectionBuddy
 
-This gem facilitates integration with the Electionbuddy API, allowing the creation and management of elections programmatically.
+This gem is an SDK that facilitates integration with the Electionbuddy API, allowing the creation and management of elections programmatically.
 
 ## Installation
 
