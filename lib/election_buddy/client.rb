@@ -2,9 +2,7 @@
 
 module ElectionBuddy
   class Client
-    # BASE_URL = "https://secure.electionbuddy.com/api/v2"
-    # BASE_URL = "http://localhost:3000/api/v2"
-    BASE_URL = "http://host.docker.internal:3000"
+    BASE_URL = "https://secure.electionbuddy.com/api/v2"
 
     def initialize(api_key, adapter: Faraday.default_adapter, stubs: nil)
       @api_key = api_key
