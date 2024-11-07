@@ -13,3 +13,6 @@ Style/Documentation:
 Naming/FileName:
   Exclude:
     - 'lib/electionbuddy-ruby.rb'
+
+Metrics/MethodLength:
+  Max: 15
