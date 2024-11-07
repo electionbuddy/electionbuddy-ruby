@@ -1,7 +1,6 @@
-# ElectionBuddy Ruby Client
+# ElectionBuddy Ruby
 
 A Ruby client for interacting with the ElectionBuddy API.
-
 You can find the API documentation [here](https://api.electionbuddy.com).
 
 ## Installation
