@@ -31,7 +31,7 @@ Create an initializer file in `config/initializers/electionbuddy.rb` and add the
 
 ```ruby
 ElectionBuddy.configure do |config|
-  config.api = Rails.application.credentials.electionbuddy[:api_key]
+  config.api_key = Rails.application.credentials.electionbuddy[:api_key]
 end
 ```
 
@@ -46,7 +46,7 @@ client = ElectionBuddy::Client.new
 Alternatively, you can still pass the API key directly during initialization. If the API key is passed during initialization, it will take precedence over the global configuration.
 
 ```ruby
-client = ElectionBuddy::Client.new('your-api-key')
+client = ElectionBuddy::Client.new(api_key: 'your-api-key')
 ```
 
 ### Voter List Validation
