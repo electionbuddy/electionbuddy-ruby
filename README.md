@@ -21,10 +21,32 @@ gem 'electionbuddy-ruby'
 
 ## Usage
 
-Ensure you have an API key from Electionbuddy, and initialize the client as follows:
+Ensure you have an API key from Electionbuddy. You can configure the API key globally or initialize the client directly with the API key.
+
+### Global Configuration
+
+#### Example in a Rails application
+
+Create an initializer file in `config/initializers/electionbuddy.rb` and add the following code:
 
 ```ruby
-client = ElectionBuddy::Client.new('your-api-key')
+ElectionBuddy.configure do |config|
+  config.api_key = Rails.application.credentials.electionbuddy[:api_key]
+end
+```
+
+#### Client Initialization
+
+You can now initialize the client without passing the API key if it has been configured globally:
+
+```ruby
+client = ElectionBuddy::Client.new
+```
+
+Alternatively, you can still pass the API key directly during initialization. If the API key is passed during initialization, it will take precedence over the global configuration.
+
+```ruby
+client = ElectionBuddy::Client.new(api_key: 'your-api-key')
 ```
 
 ### Voter List Validation

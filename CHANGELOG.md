@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added Global configuration for setting the API key using `ElectionBuddy.configure` method
+
 ### Fixed
 
 - Fix changelog version ordering
