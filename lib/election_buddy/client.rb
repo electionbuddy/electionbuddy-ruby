@@ -4,8 +4,8 @@ module ElectionBuddy
   class Client
     BASE_URL = "https://secure.electionbuddy.com/api/v2"
 
-    def initialize(api_key, adapter: Faraday.default_adapter, stubs: nil)
-      @api_key = api_key
+    def initialize(api_key: nil, adapter: Faraday.default_adapter, stubs: nil)
+      @api_key = api_key || ElectionBuddy.configuration.api_key
       @adapter = adapter
       @stubs = stubs
     end

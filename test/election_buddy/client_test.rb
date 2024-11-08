@@ -6,7 +6,7 @@ module ElectionBuddy
   class ClientTest < Minitest::Test
     def setup
       @api_key = "test_api_key"
-      @client = Client.new(@api_key)
+      @client = Client.new(api_key: @api_key)
     end
 
     def test_initialization
