@@ -1,7 +1,7 @@
 # ElectionBuddy Ruby
 
-A Ruby client for interacting with the ElectionBuddy API.
-You can find the API documentation [here](https://api.electionbuddy.com).
+A Ruby client for interacting with the [ElectionBuddy API](https://api.electionbuddy.com).
+Explore the complete documentation at [https://electionbuddy.github.io/electionbuddy-ruby](https://electionbuddy.github.io/electionbuddy-ruby).
 
 ## Installation
 
@@ -142,6 +142,17 @@ The following errors may be raised by the API:
 - **500**: We were unable to perform the request due to server-side problems.
 
 Each error will raise an `Error` exception with a message detailing the status code and the error message returned by the API.
+
+## Documentation
+
+The complete documentation for this gem is available at: https://electionbuddy.github.io/electionbuddy-ruby
+
+You can also generate the documentation locally using:
+
+```bash
+yard doc
+yard server
+```
 
 ## Development
 

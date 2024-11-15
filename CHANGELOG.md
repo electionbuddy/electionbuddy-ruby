@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added Global configuration for setting the API key using `ElectionBuddy.configure` method
 - Ability to retrieve voter list's validation results
+- Automated gem documentation using YARD and GitHub Pages
 
 ### Changed
 
