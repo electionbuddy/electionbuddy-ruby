@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added Global configuration for setting the API key using `ElectionBuddy.configure` method
+- Ability to retrieve voter list's validation results
+
+### Changed
+
+- Update README.md with get validtion results usage instructions
+- Update .rubocop.yml with new rules
 
 ### Fixed
 

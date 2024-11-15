@@ -17,7 +17,7 @@ module ElectionBuddy
     private
 
     def handle_response(response)
-      return response.body if response.success? || response.status == 422
+      return response.body if response.success? || [422, 423].include?(response.status)
 
       raise_error(response.status, ErrorFormatter.format(response.body))
     end
