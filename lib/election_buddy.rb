@@ -12,6 +12,11 @@ require "election_buddy/resources/voter_list_resource"
 require "election_buddy/entities/validation"
 require "election_buddy/error_formatter"
 require "election_buddy/configuration"
+require "election_buddy/entities/validation/result"
+require "election_buddy/entities/validation/line_error"
+require "election_buddy/entities/validation/line_errors"
+require "election_buddy/entities/validation/list_error"
+require "election_buddy/entities/validation/list_errors"
 
 module ElectionBuddy
   class << self
