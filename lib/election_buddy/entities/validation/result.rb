@@ -30,6 +30,7 @@ module ElectionBuddy
     #   result.failure_message #=> "API call has failed - Error: Validation: not found"
     class Result
       # Initializes a new validation result
+      #
       # @param response [Hash] The raw response from the validation API
       def initialize(response)
         @result = process_response(response)
@@ -52,6 +53,7 @@ module ElectionBuddy
       end
 
       # Returns the total count of all validation errors
+      #
       # @return [Integer] Total number of validation errors
       # @raise [UnavailableTotalErrorsCount] if the API call failed
       def total_errors_count
@@ -61,6 +63,7 @@ module ElectionBuddy
       end
 
       # Indicates if the validation passed without errors
+      #
       # @return [Boolean] true if validation passed, false otherwise
       # @raise [UnavailableValidStatus] if the API call failed
       def valid?
@@ -70,6 +73,7 @@ module ElectionBuddy
       end
 
       # Returns the error message if validation failed
+      #
       # @return [String, nil] The formatted error message or nil if successful
       def failure_error
         return if success?
@@ -78,6 +82,7 @@ module ElectionBuddy
       end
 
       # Returns a user-friendly failure message
+      #
       # @return [String, nil] The failure message or nil if successful
       def failure_message
         return if success?
