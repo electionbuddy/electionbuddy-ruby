@@ -18,10 +18,22 @@ require "election_buddy/entities/validation/line_errors"
 require "election_buddy/entities/validation/list_error"
 require "election_buddy/entities/validation/list_errors"
 
+# ElectionBuddy API client library
+#
+# @api public
+# @example Configure the client
+#   ElectionBuddy.configure do |config|
+#     config.api_key = 'your-api-key'
+#   end
 module ElectionBuddy
   class << self
+    # @return [Configuration] Current configuration
     attr_accessor :configuration
 
+    # Configures the ElectionBuddy client
+    #
+    # @yield [config] Configuration instance to be modified
+    # @yieldparam [Configuration] config The configuration instance
     def configure
       self.configuration ||= Configuration.new
       yield(configuration)
