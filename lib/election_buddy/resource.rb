@@ -1,15 +1,37 @@
 # frozen_string_literal: true
 
 module ElectionBuddy
+  # Base class for API resources
+  #
+  # @example
+  #   class VoterListResource < Resource
+  #     def validate(vote_id)
+  #       post_request("/api/v2/votes/voters/validations", vote_id: vote_id)
+  #     end
+  #   end
+  #
   class Resource
+    # @param connection [Object] The HTTP client connection
     def initialize(connection)
       @connection = connection
     end
 
+    # Makes a GET request to the API
+    #
+    # @param url [String] The API endpoint URL
+    # @param params [Hash] Query parameters
+    # @param headers [Hash] Request headers
+    # @return [Hash] The API response
     def get_request(url, params = {}, headers = {}, &block)
       handle_response(@connection.get(url, params, headers, &block))
     end
 
+    # Makes a POST request to the API
+    #
+    # @param url [String] The API endpoint URL
+    # @param body [Hash] Request body parameters
+    # @param headers [Hash] Request headers
+    # @return [Hash] The API response
     def post_request(url, body = {}, headers = {}, &block)
       handle_response(@connection.post(url, body, headers, &block))
     end
