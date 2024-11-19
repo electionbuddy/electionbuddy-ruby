@@ -9,6 +9,12 @@ module ElectionBuddy
   #   result = resource.get_validation_result(validation.identifier)
   #
   class VoterListResource < Resource
+    def import(vote_id, voters, append_mode: false)
+      response = post_request("/api/v2/votes/voters/importations", vote_id: vote_id.to_i, voters: voters, append_mode: append_mode)
+
+      Importation.new(response)
+    end
+
     # Initiates a validation for a given vote
     #
     # @param vote_id [Integer] The ID of the vote to validate
