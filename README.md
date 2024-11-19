@@ -49,6 +49,27 @@ Alternatively, you can still pass the API key directly during initialization. If
 client = ElectionBuddy::Client.new(api_key: 'your-api-key')
 ```
 
+### Voter List Importation
+
+To import a voter list for an election, use the `voter_list.import(vote_id, voters, append_mode: false)` method:
+
+```ruby
+voters = [
+  { email: 'voter1@example.com', label: 'Voter One' },
+  { email: 'voter2@example.com', label: 'Voter Two' }
+]
+
+import = client.voter_list.import(1, voters, append_mode: false)
+
+if import.done?
+  puts "Import completed successfully! Identifier: #{import.identifier}"
+else
+  puts "Import failed: #{import.error}"
+end
+```
+
+The `append_mode` parameter determines whether the voters should be appended to the existing list (`true`) or replace the existing list (`false`). The default value is `false`.
+
 ### Voter List Validation
 
 To validate a voter list, use the `voter_list.validate(vote_id)` method:
