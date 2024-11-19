@@ -103,5 +103,36 @@ module ElectionBuddy
       assert_raises(::ElectionBuddy::Validation::UnavailableTotalErrorsCount) { result.total_errors_count }
       assert_raises(::ElectionBuddy::Validation::UnavailableValidStatus) { result.valid? }
     end
+
+    def test_import_success
+      voters = [{
+        identifier: "1000",
+        email: "buddy@electionbuddy.com",
+        label: "Election Buddy"
+      }]
+
+      @stubs.post("/api/v2/votes/voters/importations") do
+        [200, { "Content-Type" => "application/json" },
+         { importation_identifier: "35e9ad9e-b219-46e6-b7fd-7906791a2b28" }.to_json]
+      end
+
+      importation = @resource.import(58_812, voters)
+
+      assert_equal "35e9ad9e-b219-46e6-b7fd-7906791a2b28", importation.identifier
+      assert importation.done?
+      assert_nil importation.error
+    end
+
+    def test_import_not_found_error
+      @stubs.post("/api/v2/votes/voters/importations") do
+        [422, { "Content-Type" => "application/json" },
+         { error: { vote: "not found" } }.to_json]
+      end
+
+      importation = @resource.import(99_999, [])
+
+      refute importation.done?
+      assert_equal "Vote: not found", importation.error
+    end
   end
 end
