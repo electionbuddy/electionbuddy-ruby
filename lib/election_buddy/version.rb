@@ -6,6 +6,6 @@ module ElectionBuddy
   # @api public
   # @return [String] the current version of the gem
   # @example Get current version
-  #   ElectionBuddy::VERSION #=> "0.3.0"
-  VERSION = "0.3.0"
+  #   ElectionBuddy::VERSION #=> "0.4.0"
+  VERSION = "0.4.0"
 end
